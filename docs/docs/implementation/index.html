@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Implementation · Coding Challenge</title>
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content="Docusaurus" />
+  <meta name="description" content="## Models" />
+  <meta name="docsearch:language" content="en" />
+  <meta property="og:title" content="Implementation · Coding Challenge" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/" />
+  <meta property="og:description" content="## Models" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="robots" content="noindex" />
+  <link rel="shortcut icon" href="/" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+  <script type="text/javascript" src="https://buttons.github.io/buttons.js"></script>
+  <script src="../../js/scrollSpy.js"></script>
+  <link rel="stylesheet" href="../../css/main.css" />
+  <script src="../../js/codetabs.js"></script>
+</head>
+
+<body class="sideNavVisible separateOnPageNav">
+  <div class="fixedHeaderContainer">
+    <div class="headerWrapper wrapper">
+      <header><a href="../../index.html">
+          <h2 class="headerTitle">Coding Challenge</h2>
+        </a>
+        <div class="navigationWrapper navigationSlider">
+          <nav class="slidingNav">
+            <ul class="nav-site nav-site-internal">
+              <li class="siteNavGroupActive"><a href="../introduction/index.html" target="_self">Docs</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </div>
+  </div>
+  <div class="navPusher">
+    <div class="docMainWrapper wrapper">
+      <div class="docsNavContainer" id="docsNav">
+        <nav class="toc">
+          <div class="toggleNav">
+            <section class="navWrapper wrapper">
+              <div class="navBreadcrumb wrapper">
+                <div class="navToggle" id="navToggler">
+                  <div class="hamburger-menu">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                  </div>
+                </div>
+                <h2><i>›</i><span>The Project</span></h2>
+                <div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div>
+              </div>
+              <div class="navGroups">
+                <div class="navGroup">
+                  <h3 class="navGroupCategoryTitle">The Project</h3>
+                  <ul class="">
+                    <li class="navListItem"><a class="navItem" href="../introduction/index.html">Introduction</a></li>
+                    <li class="navListItem navListItemActive"><a class="navItem"
+                        href="../implementation/index.html">Implementation</a></li>
+                  </ul>
+                </div>
+                <div class="navGroup">
+                  <h3 class="navGroupCategoryTitle">Configuration</h3>
+                  <ul class="">
+                    <li class="navListItem"><a class="navItem" href="../configuration/index.html">Configuration</a></li>
+                  </ul>
+                </div>
+                <div class="navGroup">
+                  <h3 class="navGroupCategoryTitle">Running the application</h3>
+                  <ul class="">
+                    <li class="navListItem"><a class="navItem" href="../runnigapplication/index.html">Running the
+                        application</a></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </div>
+          <script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory) {
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')) {
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function () {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function (event) {
+                var el = event.target;
+                while (el !== headings) {
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else {
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function (event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+          </script>
+        </nav>
+      </div>
+      <div class="container mainContainer">
+        <div class="wrapper">
+          <div class="post">
+            <header class="postHeader">
+              <h1 class="postHeaderTitle">Implementation</h1>
+            </header>
+            <article>
+              <div><span>
+                  <h2><a class="anchor" aria-hidden="true" id="models"></a><a href="#models" aria-hidden="true"
+                      class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1"
+                        viewBox="0 0 16 16" width="16">
+                        <path fill-rule="evenodd"
+                          d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+                        </path>
+                      </svg></a>Models</h2>
+                  <p>There are several routes in the API used in the project that return some objects. These objects are
+                    people, planets, starships, among others. You must have an equivalent C # object for each object
+                    returned by the API.</p>
+                  <p>However, for routes that return more than one item, the returned object has its own structure. So
+                    there is a generic class called <strong>ModelList</strong> that is representing the returned object.
+                  </p>
+                  <pre><code class="hljs css language-C#">public class ModelList&lt;T&gt;
+{
+    public int Count { get; set; }
+    public string Next { get; set; }
+    public string Previous { get; set; }
+    public IList&lt;T&gt; Results { get; set; }
+}
+</code></pre>
+                  <h2><a class="anchor" aria-hidden="true" id="api"></a><a href="#api" aria-hidden="true"
+                      class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1"
+                        viewBox="0 0 16 16" width="16">
+                        <path fill-rule="evenodd"
+                          d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+                        </path>
+                      </svg></a>API</h2>
+                  <p>In order to make API queries easier, a solution was implemented that encapsulates and makes generic
+                    all calls, return treatments, object conversion.</p>
+                  <p>Just make use of the class <strong>BaseApi</strong> passing the Model that will be used for
+                    callback. You must also enter which route to call on the <strong>BaseUri</strong> property</p>
+                  <pre><code class="hljs css language-C#">public class StarShipsApi : BaseApi&lt;StarShip&gt;, IStarShipsApi
+{
+    public StarShipsApi(IConfigurationRoot config) : base(config)
+    {
+        BaseUri = "starships";
+    }
+}
+</code></pre>
+                  <h2><a class="anchor" aria-hidden="true" id="services"></a><a href="#services" aria-hidden="true"
+                      class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1"
+                        viewBox="0 0 16 16" width="16">
+                        <path fill-rule="evenodd"
+                          d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+                        </path>
+                      </svg></a>Services</h2>
+                  <p>In this challenge, <strong>Service</strong> was used as a business flow orchestration object. Tasks
+                    such as requesting information from the user, API requests, information processing and output of
+                    processed data are performed.</p>
+                  <h2><a class="anchor" aria-hidden="true" id="dependency-injection"></a><a href="#dependency-injection"
+                      aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16"
+                        version="1.1" viewBox="0 0 16 16" width="16">
+                        <path fill-rule="evenodd"
+                          d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+                        </path>
+                      </svg></a>Dependency Injection</h2>
+                  <p>In this challenge a well-known and widely used developmental pattern of Dependency Injection was
+                    used. To perform the configuration of an injection, just register in class
+                    <strong><em>Startup.cs</em></strong>.</p>
+                  <pre><code class="hljs css language-C#">collection.AddScoped&lt;IStarShipsApi, StarShipsApi&gt;();
+collection.AddScoped&lt;IStarShipsService, StarShipsService&gt;();
+</code></pre>
+                </span></div>
+            </article>
+          </div>
+          <div class="docs-prevnext"><a class="docs-prev button" href="../introduction/index.html"><span class="arrow-prev">←
+              </span><span>Introduction</span></a><a class="docs-next button"
+              href="../configuration/index.html"><span>Configuration</span><span class="arrow-next"> →</span></a></div>
+        </div>
+      </div>
+      <nav class="onPageNav">
+        <ul class="toc-headings">
+          <li><a href="#models">Models</a></li>
+          <li><a href="#api">API</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#dependency-injection">Dependency Injection</a></li>
+        </ul>
+      </nav>
+    </div>
+    <footer class="nav-footer" id="footer">
+      <section class="copyright">Copyright © 2019 Marcondes Soares</section>
+    </footer>
+  </div>
+</body>
+
+</html>
